@@ -12,6 +12,7 @@ const Sports = ({ sportsData }: SportsDataArrayProps) => {
         {sportsData.map((sport) => (
           <div key={sport.id}>
             <TagCard
+              iid={sport.id}
               imgSrc={sport.imgSrc}
               title={sport.title}
               authImg={sport.author.img}

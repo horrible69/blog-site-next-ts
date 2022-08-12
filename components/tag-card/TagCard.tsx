@@ -1,4 +1,7 @@
+import Link from "next/link";
+
 interface TagCardProp {
+  iid: number;
   imgSrc: string;
   title: string;
   authImg: string;
@@ -6,6 +9,7 @@ interface TagCardProp {
   authPost: string;
 }
 const TagCard = ({
+  iid,
   imgSrc,
   title,
   authImg,
@@ -18,7 +22,11 @@ const TagCard = ({
         <img src={imgSrc} alt={title} className="rounded-lg" />
       </div>
       <div className="col-span-3 items-center">
-        <h1 className="text-xl font-bold">{title}</h1>
+        <Link href={`/sports/${iid}`}>
+          <a>
+            <h1 className="text-xl font-bold hover:underline">{title}</h1>
+          </a>
+        </Link>
         <div className="flex space-x-2">
           <img
             className="h-12 w-12 rounded-full"

@@ -15,6 +15,7 @@ const Business = ({ businessData }: BusinessDataArrayProps) => {
           <div key={business.id}>
             {/* <h1>Businnes</h1> */}
             <Card
+              iid={business.id}
               imgSrc={business.imgSrc}
               title={business.title}
               description={business.description}

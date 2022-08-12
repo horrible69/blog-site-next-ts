@@ -12,6 +12,7 @@ import "swiper/css/pagination";
 // import required modules
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
 import { TrendingDataProps } from "../../pages/api/trending";
+import Link from "next/link";
 
 interface SwiperCompType {
   trendingData: TrendingDataProps[];
@@ -31,15 +32,17 @@ export default function SwiperComp({ trendingData }: SwiperCompType) {
       >
         {trendingData.map((trending) => (
           <SwiperSlide key={trending.id}>
-            <div className=" h-[50vh] w-[100vw] grid grid-cols-3 gap-12 ">
+            <div className=" h-[50vh] max-w-[100vw] grid grid-cols-3 gap-12 ">
               <img
                 src={trending.imgSrc}
                 alt={trending.source}
                 className="h-full w-full overflow-hidden rounded-xl"
               />
               <div className="w-full col-span-2 flex gap-y-4 flex-col justify-center">
-                <h1 className="text-5xl font-bold text-slate-900">
-                  {trending.title}
+                <h1 className="text-5xl font-bold text-slate-900 hover:underline ">
+                  <Link href={`/${trending.id}`}>
+                    <a>{trending.title}</a>
+                  </Link>
                 </h1>
                 <p>{trending.description}</p>
                 <div className="flex">
